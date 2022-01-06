@@ -13,6 +13,14 @@ counter.subscribe((state) => {
   counterElement.innerHTML = convertToTime(state)
 })
 
-startButton.addEventListener('click', () => stateMachine.start())
-stopButton.addEventListener('click', () => stateMachine.stop())
-resetButton.addEventListener('click', () => stateMachine.reset())
+startButton.addEventListener('click', () => {
+  stateMachine.dispatchTransition('start')
+})
+
+stopButton.addEventListener('click', () => {
+  stateMachine.dispatchTransition('stop')
+})
+
+resetButton.addEventListener('click', () => {
+  stateMachine.dispatchTransition('reset')
+})
